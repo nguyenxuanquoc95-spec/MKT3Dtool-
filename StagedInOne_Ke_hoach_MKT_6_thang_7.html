@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StagedInOne Marketing Plan</title>
+<style>
+:root{
+  --bg:#f6f7fb; --card:#ffffff; --ink:#1b2333; --muted:#5b6475; --line:#e3e6ee;
+  --navy:#1f3864; --navy-2:#2e75b6; --accent:#e07a2e; --green:#3c8d4f; --red:#c0392b; --amber:#b7791f;
+  --p0:#7a869a; --p1:#2e75b6; --p2:#c55a11; --p3:#3c8d4f;
+  --soft:#eef2fa; --yellow:#fff4d6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11151d; --card:#1a202b; --ink:#e7ebf3; --muted:#9aa3b5; --line:#2b3342;
+    --navy:#8fb3ff; --navy-2:#6aa8ff; --soft:#222a38; --yellow:#3a3320;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11151d; --card:#1a202b; --ink:#e7ebf3; --muted:#9aa3b5; --line:#2b3342;
+  --navy:#8fb3ff; --navy-2:#6aa8ff; --soft:#222a38; --yellow:#3a3320;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 "Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px 64px}
+header.hero{background:linear-gradient(135deg,#1f3864,#2e75b6);color:#fff;padding:40px 16px 32px}
+header.hero .wrap{padding-bottom:0}
+.hero h1{margin:0 0 6px;font-size:30px;line-height:1.25}
+.hero p{margin:0;opacity:.9}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.meta span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:4px 10px;border-radius:999px;font-size:13px}
+nav.toc{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:8px 16px;white-space:nowrap}
+nav.toc a{color:var(--muted);text-decoration:none;font-size:13px;padding:6px 10px;border-radius:6px}
+nav.toc a:hover{background:var(--soft);color:var(--ink)}
+section{margin-top:36px}
+h2{font-size:22px;margin:0 0 4px;color:var(--navy)}
+h2 .num{display:inline-block;min-width:30px;color:var(--accent)}
+h3{font-size:17px;margin:20px 0 8px}
+.lead{color:var(--muted);margin:0 0 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.kpi .v{font-size:28px;font-weight:700;color:var(--navy)}
+.kpi .l{color:var(--muted);font-size:13px}
+.note{background:var(--yellow);border-left:4px solid var(--accent);padding:12px 14px;border-radius:8px;font-size:14px}
+ul{margin:6px 0;padding-left:20px} li{margin:3px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);color:var(--ink);font-weight:600;white-space:nowrap}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;color:#fff}
+.t0{background:var(--p0)}.t1{background:var(--p1)}.t2{background:var(--p2)}.t3{background:var(--p3)}
+.phase{border-top:5px solid var(--p1)}
+.phase.p0{border-top-color:var(--p0)}.phase.p2{border-top-color:var(--p2)}.phase.p3{border-top-color:var(--p3)}
+.phase h3{margin-top:4px}
+.phase .dates{color:var(--muted);font-size:13px}
+.gate{margin-top:10px;font-size:13px;background:var(--soft);padding:10px 12px;border-radius:8px}
+/* timeline */
+.tl{position:relative;padding-top:26px}
+.tl .months{display:grid;grid-template-columns:repeat(26,1fr);font-size:11px;color:var(--muted);position:absolute;top:0;left:150px;right:0}
+.tl .row{display:grid;grid-template-columns:150px 1fr;align-items:center;margin:6px 0}
+.tl .lbl{font-size:13px;font-weight:600;padding-right:8px}
+.tl .track{position:relative;height:24px;background:var(--soft);border-radius:6px}
+.tl .bar{position:absolute;top:0;bottom:0;border-radius:6px;color:#fff;font-size:11px;padding:3px 6px;overflow:hidden;white-space:nowrap}
+@media (max-width:700px){.tl .row{grid-template-columns:90px 1fr}.tl .months{left:90px}.tl .lbl{font-size:11px}}
+/* budget bars */
+.bud{display:grid;grid-template-columns:110px 1fr 70px;gap:8px;align-items:center;margin:6px 0;font-size:13px}
+.bud .b{display:flex;height:20px;border-radius:5px;overflow:hidden;background:var(--soft)}
+.bud .g{background:var(--p1)} .bud .f{background:var(--p2)}
+.legend{display:flex;gap:16px;font-size:13px;color:var(--muted);margin:6px 0 4px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.pk .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.pk .stats div{background:var(--soft);border-radius:8px;padding:8px 10px}
+.pk .stats b{display:block;font-size:22px;color:var(--navy);line-height:1.2}
+.pk .stats span{font-size:12px;color:var(--muted)}
+.total{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;margin-top:14px;padding:12px 16px;border-radius:10px;background:var(--navy);color:#fff}
+.total b{font-size:18px}
+/* funnel */
+.funnel{display:grid;gap:6px}
+.funnel div{color:#fff;padding:8px 12px;border-radius:6px;font-size:14px;margin:0 auto;text-align:center}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.filters button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 12px;border-radius:999px;cursor:pointer;font-size:13px}
+.filters button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+a{color:var(--navy-2)}
+.small{font-size:13px;color:var(--muted)}
+footer{margin-top:48px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <h1>StagedInOne: Kế hoạch Marketing 6 tháng</h1>
+    <p>AI Virtual Staging SaaS cho thị trường Mỹ · Fotober Media</p>
+    <div class="meta">
+      <span>06/11/2026 → 09/05/2027</span>
+      <span>Ngân sách ads $1.000–2.000/tháng</span>
+      <span>3 nhân sự kiêm nhiệm</span>
+      <span>Google Ads launch 08/11/2026 (kênh chính)</span><span>Facebook Ads launch 04/01/2027</span>
+    </div>
+  </div>
+</header>
+<nav class="toc"><div class="wrap">
+  <a href="#tomtat">Tóm tắt</a><a href="#google">Google Ads</a><a href="#boicanh">Bối cảnh</a><a href="#lotrinh">Lộ trình</a><a href="#giaidoan">Giai đoạn</a>
+  <a href="#kenh">Kế hoạch kênh</a><a href="#video">Video</a><a href="#ngansach">Ngân sách</a><a href="#kpi">KPI kênh</a>
+  <a href="#nhansu">Nhân sự & KPI</a><a href="#task">Task list</a><a href="#ruiro">Rủi ro</a><a href="#vanhanh">Vận hành</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="tomtat">
+  <h2><span class="num">01</span>Tóm tắt điều hành</h2>
+  <p class="lead">Mục tiêu 6 tháng: đưa StagedInOne từ 0 lên tệp khách trả phí đầu tiên, tìm được kênh có CAC chấp nhận được để scale từ quý 2/2027.</p>
+  <div class="grid g3">
+    <div class="card phase p1 pk"><span class="tag t1">GĐ1</span> <b>Google Ads + video + SEO + content</b><div class="dates">08/11/2026 – 03/01/2027</div>
+      <div class="stats"><div><b>242</b><span>Signup dùng thử</span></div><div><b>48</b><span>Khách trả phí (20%)</span></div><div><b>≤ $55</b><span>CAC từ ads</span></div><div><b>$2.650</b><span>Ngân sách ads</span></div></div></div>
+    <div class="card phase p2 pk"><span class="tag t2">GĐ2</span> <b>Facebook Ads bằng video</b><div class="dates">04/01 – 28/02/2027</div>
+      <div class="stats"><div><b>390</b><span>Signup dùng thử</span></div><div><b>90</b><span>Khách trả phí (23%)</span></div><div><b>≤ $40</b><span>CAC từ ads</span></div><div><b>$3.600</b><span>Ngân sách ads</span></div></div></div>
+    <div class="card phase p3 pk"><span class="tag t3">GĐ3</span> <b>Scale + mùa xuân</b><div class="dates">01/03 – 09/05/2027</div>
+      <div class="stats"><div><b>570</b><span>Signup dùng thử</span></div><div><b>154</b><span>Khách trả phí (27%)</span></div><div><b>≤ $30</b><span>CAC từ ads</span></div><div><b>$4.550</b><span>Ngân sách ads</span></div></div></div>
+  </div>
+  <div class="total"><span>Tổng 6 tháng</span><span><b>1.200</b> signup</span><span><b>292</b> khách trả phí (~24%)</span><span>CAC <b>≤ $38</b></span><span><b>$10.800</b> ngân sách ads</span></div>
+  <div class="card" style="margin-top:14px">
+    <strong>Logic của kế hoạch</strong>
+    <ul>
+      <li><b>Google Ads là kênh chính, chạy từ 08/11</b>, nhận 74% ngân sách (tracking và bộ từ khóa đã sẵn sàng) vì bắt được người đang chủ động tìm "virtual staging", nên ra signup nhanh nhất và cho ta số liệu CPA/CVR thật để hiệu chỉnh mọi mục tiêu khác.</li>
+      <li><b>Song song 8 tuần đầu</b>, team dựng 4 video ads đầu tiên (1 demo, 3 before/after); tổng cả kế hoạch 4–8 video. <b>Facebook Ads launch 04/01/2027</b> khi đã có video và Pixel đã gom đủ dữ liệu, vì quảng cáo FB cho SaaS dạng này sống nhờ creative.</li>
+      <li><b>SEO, Group, Fanpage</b> chạy nền từ đầu: chi phí thấp, tạo signup organic và social proof cho quảng cáo.</li>
+      <li><b>Giai đoạn 3 (từ 01/03) trùng mùa cao điểm bất động sản Mỹ</b>: lượng listing tăng, agent cần staging nhiều nhất. Đến lúc này FB đã chạy 8 tuần, biết video nào thắng, nên dồn ngân sách scale đúng mùa.</li>
+    </ul>
+  </div>
+  <p class="small" style="margin-top:10px">File theo dõi đi kèm: Google Sheet "StagedInOne - Kế hoạch MKT 6 tháng (Task &amp; KPI)" gồm Tổng quan, Task list, KPI kênh, KPI nhân sự, Ngân sách, Báo cáo tuần.</p>
+</section>
+
+<section id="google">
+  <h2><span class="num">02</span>Google Ads: kênh chính ra khách</h2>
+  <p class="lead">Launch <b>08/11/2026</b>. Google chiếm $8.000 / $10.800 ngân sách (74%) và phải mang về hơn một nửa khách trả phí của cả kế hoạch (khoảng 163/292). Đây là việc quan trọng nhất của NS1.</p>
+  <div class="grid g3">
+    <div class="card kpi"><div class="v">212</div><div class="l">Signup từ Google trong GĐ1 (CPA ≤ $12,5)</div></div>
+    <div class="card kpi"><div class="v">42</div><div class="l">Khách trả phí từ Google trong GĐ1 (20%)</div></div>
+    <div class="card kpi"><div class="v">≤ $63</div><div class="l">CAC Google GĐ1 (trước là $98), ngân sách ~$50/ngày</div></div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><b>Checklist trước khi bấm chạy (07/11)</b>
+      <ul>
+        <li>sign_up và purchase là <b>conversion chính</b> (Primary); các hành động phụ để Secondary để không làm nhiễu số liệu.</li>
+        <li>Vị trí: United States, chọn <b>"Presence: người ở hoặc thường ở"</b>, không chọn "quan tâm đến".</li>
+        <li>Mạng: tắt Search Partners và Display Network.</li>
+        <li>Ngân sách ngày ~$50: Generic $30, Competitor $12, Brand $8.</li>
+        <li>Từ khóa: Phrase + Exact, chưa dùng Broad. Gắn negative list ở cấp tài khoản.</li>
+        <li>Giá thầu: Maximize Clicks có giới hạn CPC tối đa $4 trong 1–2 tuần đầu để gom dữ liệu; khi có ≥ 15 signup chuyển sang Maximize Conversions.</li>
+        <li>Final URL về website stagedinone.com, có UTM. Bấm thử từng quảng cáo để kiểm tra link.</li>
+      </ul></div>
+    <div class="card"><b>Nhịp tối ưu 14 ngày đầu</b>
+      <ul>
+        <li><b>Ngày 1–3:</b> kiểm tra 2 lần/ngày: quảng cáo được duyệt, chi tiêu đúng ngân sách, conversion ghi nhận.</li>
+        <li><b>Ngày 3–7:</b> đọc Search terms mỗi ngày, thêm negative cho truy vấn sai intent (staging thật, việc làm, khóa học).</li>
+        <li><b>Từ ngày 7:</b> tạm dừng từ khóa đã tiêu &gt; $25 (2 lần CPA mục tiêu $12,5) mà chưa có signup; tạm dừng quảng cáo CTR &lt; 3%.</li>
+        <li><b>Ngày 7–14:</b> dồn ngân sách sang nhóm có CPA ≤ $12,5; đọc Search impression share để biết đang mất hiển thị vì ngân sách hay vì rank.</li>
+        <li><b>Hằng ngày:</b> nhập số liệu vào tab "Google Ads" của sheet. <b>Thứ Hai:</b> báo cáo tuần.</li>
+      </ul></div>
+  </div>
+  <div class="card" style="margin-top:14px"><b>Cách hạ CAC (CAC = Chi phí ÷ Khách trả phí)</b>
+    <ul>
+      <li><b>Tăng tỷ lệ dùng thử → trả phí</b> (đòn bẩy lớn nhất): từ 17% lên 20% đã hạ CAC khoảng 15% mà không tốn thêm tiền ads. Cách làm: sales liên hệ trong 24 giờ, email 7 ngày đầu, bản dùng thử có watermark.</li>
+      <li><b>Tăng tỷ lệ đăng ký trên website (CVR)</b> lên 20%: nút dùng thử rõ ở đầu trang, form ngắn, ảnh before/after ngay màn hình đầu.</li>
+      <li><b>Giảm CPC xuống $2,5</b>: chỉ giữ từ khóa intent mua, negative list chặt, quảng cáo sát từ khóa để Quality Score ≥ 7.</li>
+      <li><b>Tách ngân sách theo hiệu quả</b>: nhóm từ khóa có CAC thấp nhất nhận thêm ngân sách mỗi tuần; nhóm CAC gấp đôi mục tiêu thì cắt.</li>
+      <li><b>Khách không tốn tiền ads</b> từ SEO, Group, referral kéo CAC trung bình của cả kế hoạch xuống.</li>
+    </ul></div>
+  <h3>Cách tính các chỉ số Google Ads</h3>
+  <div class="tbl"><table>
+    <tr><th>Chỉ số</th><th>Cách tính</th><th>Mục tiêu GĐ1</th><th>Khi lệch mục tiêu</th></tr>
+    <tr><td>Chi phí</td><td>Lấy từ Google Ads (Cost)</td><td>$2.650</td><td>Vượt: kiểm tra ngân sách ngày từng campaign</td></tr>
+    <tr><td>Lượt hiển thị</td><td>Lấy từ Google Ads (Impr.)</td><td>~17.700</td><td>Thấp: thêm từ khóa, nới Exact sang Phrase, tăng bid</td></tr>
+    <tr><td>Click</td><td>Lấy từ Google Ads (Clicks)</td><td>~1.060</td><td>Xem CTR và lượt hiển thị trước</td></tr>
+    <tr><td><b>CTR</b></td><td>Click ÷ Lượt hiển thị</td><td>≥ 6%</td><td>Viết lại headline chứa từ khóa, thêm sitelink/callout</td></tr>
+    <tr><td><b>CPC</b></td><td>Chi phí ÷ Click</td><td>≤ $2,5</td><td>Thêm negative, tách từ khóa đắt, cải thiện Quality Score</td></tr>
+    <tr><td><b>CVR (tỷ lệ đăng ký)</b></td><td>Signup ÷ Click</td><td>≥ 20%</td><td>Lọc truy vấn sai intent, kiểm tra tốc độ website và form đăng ký</td></tr>
+    <tr><td><b>CPA signup</b></td><td>Chi phí ÷ Signup</td><td>≤ $12,5</td><td>Dồn ngân sách vào nhóm CPA tốt, dừng từ khóa tiêu &gt; 2 lần CPA không ra signup</td></tr>
+    <tr><td><b>Tỷ lệ dùng thử → trả phí</b></td><td>Khách trả phí ÷ Signup</td><td>≥ 20%</td><td>Sales liên hệ trong 24 giờ, email 7 ngày đầu, giới hạn bản dùng thử</td></tr>
+    <tr><td><b>CAC Google</b></td><td>Chi phí ÷ Khách trả phí</td><td>≤ $63</td><td>Ưu tiên từ khóa ra khách trả phí, không chỉ ra signup</td></tr>
+    <tr><td>ROAS</td><td>Doanh thu ÷ Chi phí</td><td>Đặt khi chốt giá gói</td><td>So với CAC để biết bao lâu hoàn vốn</td></tr>
+    <tr><td>Search impression share</td><td>Đọc trong Google Ads</td><td>≥ 50%</td><td>Mất do ngân sách: tăng ngân sách nhóm tốt; mất do rank: tăng bid/Quality Score</td></tr>
+    <tr><td>Quality Score</td><td>Đọc trong Google Ads</td><td>≥ 7</td><td>Ad copy sát từ khóa, nhóm quảng cáo ít từ khóa, website tải nhanh</td></tr>
+  </table></div>
+  <p class="small">Chuỗi liên kết: Chi phí → (÷ CPC) Click → (× CVR) Signup → (× tỷ lệ trả phí) Khách trả phí. Muốn tăng khách trả phí mà không tăng ngân sách thì giảm CPC, tăng CVR hoặc tăng tỷ lệ trả phí. Tab "Google Ads" trong sheet tự tính tất cả chỉ số này từ số liệu nhập hằng ngày.</p>
+</section>
+
+<section id="boicanh">
+  <h2><span class="num">03</span>Bối cảnh, khách hàng mục tiêu và giả định</h2>
+  <div class="grid g3" style="margin-top:14px">
+    <div class="card"><h3 style="margin-top:0">Persona 1: Agent / Broker</h3>
+      <ul><li>Có listing nhà trống, cần ảnh đẹp nhanh, ngân sách hạn chế cho staging thật.</li><li>Kênh: Google Search, Facebook, group Realtor.</li></ul></div>
+    <div class="card"><h3 style="margin-top:0">Persona 2: RE Photographer</h3>
+      <ul><li>Muốn upsell dịch vụ cho agent mà không thuê designer.</li><li>Kênh: group Real Estate Videography của Fotober, Google, YouTube. Đây là tệp Fotober hiểu rõ nhất.</li></ul></div>
+    <div class="card"><h3 style="margin-top:0">Persona 3: Investor / Home flipper / STR host</h3>
+      <ul><li>Cần hình dung không gian khi mua, bán hoặc cho thuê ngắn hạn.</li><li>Kênh: SEO long-tail, Facebook Lookalike.</li></ul></div>
+  </div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h3 style="margin-top:0">Lợi thế sẵn có của Fotober</h3>
+      <ul>
+        <li>Tệp khách hàng hiện tại (photographer, agent Mỹ): nguồn signup đầu tiên với chi phí gần bằng 0.</li>
+        <li>Đội production video nội bộ: tự sản xuất creative cho FB Ads, không phải thuê ngoài.</li>
+        <li>Group "Real Estate Videography - Tips &amp; Tools" và Fanpage: kênh seeding và lấy feedback/UGC.</li>
+        <li>Kinh nghiệm SEO ngành post-production BĐS.</li>
+      </ul></div>
+    <div class="card"><h3 style="margin-top:0">Đối thủ cần phân tích ở GĐ0</h3>
+      <p class="small">Danh sách tham khảo, team xác minh giá và offer hiện tại qua Google Ads Transparency Center và Meta Ad Library.</p>
+      <ul><li>Virtual Staging AI, REimagineHome, Collov AI, Apply Design (AI/SaaS)</li><li>BoxBrownie, PhotoUp (dịch vụ staging do designer làm)</li></ul>
+      <p class="small">Câu hỏi cần trả lời: họ bán theo ảnh hay theo tháng, offer dùng thử ra sao, từ khóa nào họ đang bid, hook video nào chạy lâu nhất.</p></div>
+  </div>
+</section>
+
+<section id="lotrinh">
+  <h2><span class="num">04</span>Lộ trình tổng thể</h2>
+  <p class="lead">Tracking và bộ từ khóa đã sẵn sàng nên bỏ giai đoạn chuẩn bị dài, dựng campaign và kiểm tra trong 06–07/11. Google Ads chạy từ <b>08/11/2026</b>, Facebook Ads từ <b>04/01/2027</b>.</p>
+  <div class="card">
+    <div class="tl" id="timeline"></div>
+  </div>
+  <h3>Các mốc quan trọng</h3>
+  <div class="tbl"><table>
+    <tr><th>Ngày</th><th>Mốc</th><th>Phụ trách</th></tr>
+    <tr><td>06–07/11/2026</td><td>Dựng 3 campaign Search, QA conversion, UTM, nhắm Mỹ, tắt Search Partners và Display Expansion</td><td>NS1</td></tr>
+    <tr><td><b>08/11/2026</b></td><td><b>Launch Google Ads</b> (~$50/ngày), theo dõi sát 72 giờ đầu</td><td>NS1</td></tr>
+    <tr><td>16/11/2026</td><td>Xong kịch bản 4 video, dashboard báo cáo tuần, Fanpage chuẩn hóa</td><td>NS1, NS2</td></tr>
+    <tr><td>23/11/2026</td><td>Xong keyword map 30 bài SEO</td><td>NS2</td></tr>
+    <tr><td>30/11/2026</td><td>Xong video demo sản phẩm</td><td>NS3</td></tr>
+    <tr><td>07/12/2026</td><td>Review 4 tuần Google Ads: cập nhật CPC, CVR, tỷ lệ trả phí thật vào KPI</td><td>NS1</td></tr>
+    <tr><td>14/12/2026</td><td>Xong 4 video ads (1 demo + 3 before/after)</td><td>NS3</td></tr>
+    <tr><td>21/12/2026</td><td>Cắt đủ tỉ lệ + 3 hook cho 4 video; 3 bài so sánh đã đăng</td><td>NS3, NS2</td></tr>
+    <tr><td>03/01/2027</td><td>Xong 8 bài blog; campaign Facebook dựng sẵn</td><td>NS2, NS1</td></tr>
+    <tr><td><b>04/01/2027</b></td><td><b>Launch Facebook Ads</b> (test 3 ad set × 3–4 video)</td><td>NS1</td></tr>
+    <tr><td>18/01/2027</td><td>Chọn video thắng, bắt đầu scale + retarget</td><td>NS1</td></tr>
+    <tr><td>28/02/2027</td><td>Review GĐ2: CAC từng kênh, chốt phân bổ cho mùa xuân</td><td>NS1</td></tr>
+    <tr><td>01/03/2027</td><td>Chiến dịch Spring Listing Season, ưu đãi gói năm</td><td>NS1, NS2</td></tr>
+    <tr><td>09/05/2027</td><td>Tổng kết 6 tháng</td><td>NS1</td></tr>
+  </table></div>
+</section>
+
+<section id="giaidoan">
+  <h2><span class="num">05</span>Chi tiết từng giai đoạn</h2>
+  <div class="grid g2">
+    <div class="card phase p0">
+      <span class="tag t0">GĐ0</span><h3>Pre-launch</h3><div class="dates">06/11 – 07/11/2026 · 2 ngày · Ads: $0</div>
+      <ul>
+        <li><b>Đã xong:</b> GA4 + GTM với 4 event, Google Ads conversion, Meta Pixel + CAPI, bộ từ khóa và negative list.</li>
+        <li>Dựng 3 campaign Search (Generic, Competitor, Brand): RSA 15 headline/4 description, sitelink, callout, image asset.</li>
+        <li>QA: test conversion bằng Tag Assistant, final URL + UTM, chỉ nhắm Mỹ, ngôn ngữ English, tắt Search Partners và Display Expansion, lịch chạy theo giờ Mỹ.</li>
+      </ul>
+      <div class="gate"><b>Điều kiện launch 08/11:</b> campaign được duyệt, test conversion ghi nhận đúng, giới hạn ngân sách đã đặt.</div>
+    </div>
+    <div class="card phase p1">
+      <span class="tag t1">GĐ1</span><h3>Chạy Google Ads + tạo video + SEO + content</h3><div class="dates">08/11/2026 – 03/01/2027 · 8 tuần · Ads: $2.650</div>
+      <ul>
+        <li><b>Chạy Ads:</b> launch Google Search 08/11 (~$50/ngày; Generic 60%, Competitor 25%, Brand 15%), traffic về website stagedinone.com. Tối ưu search terms và negative hằng ngày, báo cáo mỗi thứ Hai. Từ 21/12 dựng sẵn campaign Facebook.</li>
+        <li><b>Tạo video:</b> 4 video ads: demo (30/11), 3 before/after (14/12), cắt đủ tỉ lệ và 3 hook mỗi video trước 21/12, đăng YouTube.</li>
+        <li><b>SEO đăng bài:</b> keyword map 30 bài, 8 bài blog, 3 bài so sánh với đối thủ, listing G2/Capterra/AlternativeTo/Product Hunt.</li>
+        <li><b>Viết content:</b> chuẩn hóa Fanpage, 3 bài/tuần trên Fanpage, 2 bài/tuần trong Group.</li>
+        <li>Cuối tháng 12 là thấp điểm lễ ở Mỹ: giữ ngân sách, không ép CPA.</li>
+      </ul>
+    </div>
+    <div class="card phase p2">
+      <span class="tag t2">GĐ2</span><h3>Facebook Ads bằng video</h3><div class="dates">04/01 – 28/02/2027 · 8 tuần · Ads: $3.600 (Google $2.400, FB $1.200)</div>
+      <ul>
+        <li>04–17/01: test 3 ad set (interest Realtor/agent, Lookalike 1–3% từ signup, Advantage+ audience) × 3–4 video, tối ưu theo sign_up.</li>
+        <li>Từ 11/01: retarget người xem 50% video, khách vào web 30 ngày, signup chưa trả phí (20–25% ngân sách FB).</li>
+        <li>Từ 18/01: scale video thắng +20% mỗi 3 ngày khi CPA ổn định; tắt creative CTR thấp sau 3 ngày.</li>
+        <li>Đợt video 2: 4 video mới từ hook thắng (tổng 8 video), chuỗi 5 email nurture, tối ưu form đăng ký trên website, livestream demo trong group.</li>
+        <li>Google: giữ Search, thử Demand Gen/YouTube $150/tháng bằng video có sẵn.</li>
+      </ul>
+      <div class="gate"><b>Điều kiện sang GĐ3:</b> có ≥ 2 video thắng, biết CAC của từng kênh.</div>
+    </div>
+    <div class="card phase p3">
+      <span class="tag t3">GĐ3</span><h3>Scale + mùa xuân</h3><div class="dates">01/03 – 09/05/2027 · 10 tuần · Ads: $4.550 (Google $2.950, FB $1.600)</div>
+      <ul>
+        <li>Trùng mùa cao điểm bất động sản Mỹ: lượng listing tăng, agent cần staging nhiều nhất.</li>
+        <li>Dồn thêm 20–30% ngân sách vào kênh có CAC thấp nhất.</li>
+        <li>Chiến dịch Spring Listing Season (01/03–04/04) với ưu đãi gói năm trên mọi kênh.</li>
+        <li>FB: Lookalike từ khách trả phí, Advantage+. Google: long-tail, tối ưu theo purchase.</li>
+        <li>Referral tặng credit, thử thách Before/After trong group, SEO 8 bài + cập nhật bài cũ.</li>
+      </ul>
+      <div class="gate"><b>Mục tiêu đầu ra:</b> 570 signup, 154 khách trả phí, CAC ≤ $30, signup sang trả phí ≥ 27%, ≥ 10 từ khóa top 20.</div>
+    </div>
+  </div>
+</section>
+
+<section id="kenh">
+  <h2><span class="num">06</span>Kế hoạch theo kênh</h2>
+
+  <h3>Google Ads (kênh mở màn)</h3>
+  <div class="tbl"><table>
+    <tr><th>Campaign</th><th>Tỷ trọng</th><th>Từ khóa / tệp mẫu</th><th>Trang đích</th></tr>
+    <tr><td>Search – Generic</td><td>~60%</td><td>ai virtual staging, virtual staging software, virtual staging app, virtual staging online, virtually stage a room, virtual home staging</td><td>Trang chủ website</td></tr>
+    <tr><td>Search – Photographer</td><td>trong Generic</td><td>virtual staging for real estate photographers, add virtual staging service</td><td>Trang chủ website</td></tr>
+    <tr><td>Search – Competitor</td><td>~25%</td><td>[tên đối thủ] alternative, [tên đối thủ] pricing, cheaper than [tên đối thủ]</td><td>Bài so sánh trên blog</td></tr>
+    <tr><td>Search – Brand</td><td>~15%</td><td>stagedinone, staged in one</td><td>Trang chủ</td></tr>
+    <tr><td>Demand Gen / YouTube</td><td>GĐ2, $150/tháng</td><td>Custom segment theo từ khóa trên + video demo</td><td>Trang chủ website</td></tr>
+  </table></div>
+  <p class="small">Negative keyword quan trọng: home staging near me, staging company, staging furniture rental, jobs, course, salary, free download. Đây là các truy vấn tìm staging thật hoặc việc làm, không phải người mua phần mềm.</p>
+
+  <h3>Facebook Ads (bật sau khi có video)</h3>
+  <div class="grid g3">
+    <div class="card"><b>Cấu trúc</b><ul><li>Testing (ABO): 3 ad set × 3–4 video</li><li>Retargeting: video viewers 50%, web 30 ngày, signup chưa mua</li><li>Scale (CBO/Advantage+): chỉ chứa creative thắng</li></ul></div>
+    <div class="card"><b>Tệp</b><ul><li>Interest: Real estate agent, Realtor, real estate photography, Zillow, Keller Williams, RE/MAX</li><li>Lookalike 1–3% từ signup và khách trả phí</li><li>Custom audience: khách Fotober (upload email)</li></ul></div>
+    <div class="card"><b>Công thức creative</b><ul><li>0–3s: hook "phòng trống" chuyển sang "có nội thất"</li><li>3–12s: thao tác upload → kết quả</li><li>Cuối: offer dùng thử + CTA</li><li>Luôn có phụ đề, ưu tiên 9:16</li></ul></div>
+  </div>
+
+  <h3>SEO</h3>
+  <div class="tbl"><table>
+    <tr><th>Cụm chủ đề</th><th>Ví dụ bài / trang</th><th>Mục đích</th></tr>
+    <tr><td>Commercial</td><td>AI virtual staging software, best virtual staging app, virtual staging cost</td><td>Chuyển đổi trực tiếp</td></tr>
+    <tr><td>So sánh</td><td>StagedInOne vs [đối thủ], [đối thủ] alternatives</td><td>Bắt người đang cân nhắc</td></tr>
+    <tr><td>How-to</td><td>How to virtually stage a room, virtual staging disclosure rules for MLS</td><td>Traffic + backlink</td></tr>
+    <tr><td>Ngách</td><td>Virtual staging for photographers, for short-term rentals, for home flippers</td><td>Bài blog theo persona</td></tr>
+  </table></div>
+  <p class="small">Kế hoạch: 30 bài trong 6 tháng (khoảng 2 bài/tuần), đăng ký G2, Capterra, AlternativeTo, Product Hunt; nhúng video YouTube vào bài. Có thể dùng quy trình bài SEO sẵn có của Fotober.</p>
+
+  <h3>Fanpage và Group</h3>
+  <div class="grid g3">
+    <div class="card"><b>Fanpage StagedInOne</b><ul><li>3 bài/tuần: before/after, mẹo bán nhà, demo ngắn</li><li>Dùng làm nơi chạy ads và hiển thị social proof</li></ul></div>
+    <div class="card"><b>Group</b><ul><li>2 bài giá trị/tuần trong group Fotober + tham gia 10 group BĐS Mỹ</li><li>Trả lời câu hỏi, không spam link</li><li>GĐ2: livestream demo; GĐ3: thử thách Before/After</li></ul></div>
+  </div>
+</section>
+
+<section id="video">
+  <h2><span class="num">07</span>Kế hoạch video chạy Ads (4–8 video)</h2>
+  <p class="lead">Ít video nhưng mỗi video có 3 hook (3 giây đầu khác nhau) để test. Video thắng được giữ lại và làm mới hook thay vì làm video mới.</p>
+  <div class="tbl"><table>
+    <tr><th>Loại</th><th>Số lượng</th><th>Định dạng</th><th>Dùng cho</th><th>Deadline</th></tr>
+    <tr><td>Video 1: demo sản phẩm</td><td>1</td><td>30–60s, 9:16 + 1:1 + 16:9</td><td>FB testing và retarget, YouTube, Demand Gen, website</td><td>30/11/2026</td></tr>
+    <tr><td>Video 2–4: before/after</td><td>3</td><td>15–20s, 9:16, có phụ đề</td><td>FB testing, Reels</td><td>14/12/2026</td></tr>
+    <tr><td>Đợt 2: biến thể từ hook thắng (có thể gồm testimonial khách Fotober)</td><td>4</td><td>15–30s</td><td>FB scale</td><td>14/02/2027</td></tr>
+    <tr><td>GĐ3: làm mới hook cho video thắng</td><td>2 bản cắt</td><td>Giữ nội dung, đổi 3 giây đầu</td><td>FB scale</td><td>21/03/2027</td></tr>
+  </table></div>
+</section>
+
+<section id="ngansach">
+  <h2><span class="num">08</span>Ngân sách quảng cáo</h2>
+  <div class="card">
+    <div class="legend"><span><i style="background:var(--p1)"></i>Google Ads</span><span><i style="background:var(--p2)"></i>Facebook Ads</span></div>
+    <div id="budget"></div>
+    <p class="small" style="margin-top:10px">Tổng $10.800: Google $8.000 (74%), Facebook $2.800 (26%). Google là kênh chính nên nhận phần lớn ngân sách. Tháng 11 tính từ 08/11. Từ GĐ3, tỷ lệ chia được điều chỉnh theo CAC thực tế. Chưa bao gồm công cụ (email marketing, SEO tool) nếu Fotober chưa có sẵn.</p>
+  </div>
+</section>
+
+<section id="kpi">
+  <h2><span class="num">09</span>Mô hình phễu và KPI theo kênh</h2>
+  <div class="grid g2">
+    <div class="card">
+      <b>Phễu Google Ads GĐ1 (08/11 – 03/01)</b>
+      <div class="funnel" style="margin-top:10px">
+        <div style="background:#1f3864;width:100%">$2.650 chi phí</div>
+        <div style="background:#2e75b6;width:85%">CPC ≤ $2,5 → ~1.060 click</div>
+        <div style="background:#4a90c8;width:65%">CVR website 20% → 212 signup</div>
+        <div style="background:#e07a2e;width:45%">20% trả phí → 42 khách</div>
+      </div>
+      <p class="small">Cộng thêm khoảng 30 signup organic, GĐ1 đạt 242 signup và 48 khách trả phí. CAC GĐ1 ≤ $55, giảm xuống ≤ $40 ở GĐ2 và ≤ $30 ở GĐ3 nhờ CPC thấp hơn, tỷ lệ đăng ký và tỷ lệ trả phí tăng dần, cộng thêm khách từ organic và referral không tốn tiền ads.</p>
+    </div>
+    <div class="card">
+      <b>KPI chính theo giai đoạn</b>
+      <div class="tbl" style="margin-top:8px;border:0"><table>
+        <tr><th>GĐ</th><th>KPI</th></tr>
+        <tr><td><span class="tag t0">GĐ0</span></td><td>Tracking và từ khóa đã xong; 3 campaign được duyệt trước 08/11</td></tr>
+        <tr><td><span class="tag t1">GĐ1</span></td><td>Tổng 242 signup, 48 khách trả phí (20%), CAC ≤ $55 · Google: CTR ≥ 6%, CPC ≤ $2,5, 212 signup, CPA ≤ $12,5, 42 khách trả phí · 4 video · 8 bài SEO + 3 bài so sánh · 37 bài Fanpage/Group</td></tr>
+        <tr><td><span class="tag t2">GĐ2</span></td><td>Tổng 390 signup, 90 khách trả phí (23%), CAC ≤ $40 · FB: CPM ≤ $25, hook rate ≥ 30%, CTR link ≥ 1,2%, 120 signup, CPA ≤ $10 · Google: 210 signup, CPA ≤ $11,5</td></tr>
+        <tr><td><span class="tag t3">GĐ3</span></td><td>Tổng 570 signup, 154 khách trả phí, CAC ≤ $30, signup→trả phí ≥ 27% · FB CPA ≤ $9 · Google CPA ≤ $11 · 10 từ khóa top 20</td></tr>
+      </table></div>
+      <p class="small">Toàn bộ 43 KPI có ô nhập thực tế và tự chấm Đạt / Gần đạt / Chưa đạt ở tab "KPI kênh" trong Google Sheet.</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <b>Cách đẩy tỷ lệ dùng thử → trả phí từ 20% lên 27%</b>
+    <ul>
+      <li><b>Giới hạn bản dùng thử:</b> số ảnh miễn phí ít (ví dụ 3 ảnh) và có watermark; muốn tải bản sạch, độ phân giải cao phải trả phí.</li>
+      <li><b>Email trong 7 ngày đầu:</b> email chào mừng + hướng dẫn upload ảnh đầu tiên, nhắc khi còn credit chưa dùng, ưu đãi tháng đầu vào ngày 3 và ngày 6.</li>
+      <li><b>Sales Fotober gọi/nhắn signup chất lượng:</b> photographer và agent có website/listing thật được liên hệ trong 24 giờ.</li>
+      <li><b>Offer chuyển đổi:</b> giảm giá tháng đầu cho người dùng thử, từ GĐ3 đẩy gói năm.</li>
+      <li><b>Social proof trên trang pricing:</b> ảnh before/after thật, số ảnh đã xử lý, đánh giá khách.</li>
+      <li><b>Theo dõi hằng tuần:</b> tỷ lệ signup → upload ảnh đầu tiên → trả phí, để biết người dùng rơi ở bước nào.</li>
+    </ul>
+  </div>
+  <div class="note" style="margin-top:14px">Các con số trên là giả định khởi điểm khi chưa có dữ liệu lịch sử. Ngày 07/12 (sau 4 tuần chạy Google Ads), NS1 cập nhật lại CPC, CVR và tỷ lệ trả phí thực tế rồi điều chỉnh mục tiêu GĐ2–GĐ3.</div>
+</section>
+
+<section id="nhansu">
+  <h2><span class="num">10</span>Nhân sự, phân công và KPI cá nhân</h2>
+  <div class="grid g3">
+    <div class="card"><span class="tag t1">NS1</span> <b>Performance Marketer (lead)</b><p class="small">Google Ads, Facebook Ads, tracking, CRO, báo cáo tuần</p>
+      <ul><li>Signup từ Ads (30%)</li><li>CPA signup (20%)</li><li>Khách trả phí từ Ads (20%)</li><li>Báo cáo tuần đúng hạn (15%)</li><li>Tuần có log tối ưu đầy đủ (15%)</li></ul></div>
+    <div class="card"><span class="tag t2">NS2</span> <b>Content &amp; SEO</b><p class="small">SEO, Fanpage, Group, email, kịch bản video</p>
+      <ul><li>Bài SEO xuất bản (25%)</li><li>Traffic organic (15%)</li><li>Signup organic (25%)</li><li>Bài Fanpage + Group (20%)</li><li>Kịch bản video đúng hạn (15%)</li></ul></div>
+    <div class="card"><span class="tag t3">NS3</span> <b>Designer / Video editor</b><p class="small">Khoảng 50% thời gian, từ team production Fotober</p>
+      <ul><li>Video hoàn thiện (35%)</li><li>Video thắng (25%)</li><li>Ảnh/banner (20%)</li><li>Tỷ lệ giao đúng hạn (20%)</li></ul></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <b>Cách chấm điểm (tự động trong tab "KPI nhân sự")</b>
+    <ul>
+      <li>% đạt từng KPI = Thực tế / Mục tiêu (với chỉ số "thấp hơn tốt" như CPA thì đảo ngược), tối đa 120%.</li>
+      <li>Điểm KPI = Σ (trọng số × % đạt).</li>
+      <li>Điểm tổng = Điểm KPI × 80% + Tỷ lệ task đúng hạn × 20% (tỷ lệ lấy tự động từ Task list theo giai đoạn đang chọn).</li>
+      <li>Xếp loại: A ≥ 1,00 · B ≥ 0,85 · C ≥ 0,70 · D dưới 0,70. Trọng số và ngưỡng đều chỉnh được.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="task">
+  <h2><span class="num">11</span>Danh sách công việc (44 task)</h2>
+  <p class="lead">Bản đầy đủ có cột trạng thái, ngày hoàn thành và tự đánh dấu đúng hạn / trễ hạn trong tab "Task list".</p>
+  <div class="filters" id="filters"></div>
+  <div class="tbl"><table id="tasks"><thead><tr><th>ID</th><th>GĐ</th><th>Kênh</th><th>Công việc</th><th>Output</th><th>Phụ trách</th><th>Bắt đầu</th><th>Deadline</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section id="ruiro">
+  <h2><span class="num">12</span>Rủi ro và phương án</h2>
+  <div class="tbl"><table>
+    <tr><th>Rủi ro</th><th>Dấu hiệu</th><th>Phương án</th></tr>
+    <tr><td>CPC Google cao hơn giả định</td><td>CPC &gt; $4 sau 2 tuần</td><td>Thu hẹp sang long-tail và từ khóa photographer, cải thiện Quality Score bằng ad copy sát từ khóa và tốc độ website, giảm Competitor.</td></tr>
+    <tr><td>Signup nhiều nhưng ít trả phí</td><td>Signup→trả phí &lt; 12%</td><td>Rà onboarding, thêm email nurture, giới hạn credit miễn phí, thêm ưu đãi tháng đầu.</td></tr>
+    <tr><td>Video xong trễ làm lùi FB Ads</td><td>Tới 21/12 chưa đủ 4 video</td><td>Ưu tiên before/after 15s (dễ làm nhất), dùng screen recording thay quay dựng.</td></tr>
+    <tr><td>Meta gắn Special Ad Category (Housing)</td><td>Ads bị từ chối hoặc bị giới hạn targeting</td><td>Viết copy nói rõ đây là phần mềm cho chuyên gia BĐS, không quảng cáo nhà; dựa vào Lookalike/Advantage+ và creative tự lọc người xem.</td></tr>
+    <tr><td>Nhân sự kiêm nhiệm quá tải</td><td>Tỷ lệ task đúng hạn &lt; 70%</td><td>Cắt bớt Fanpage xuống 2 bài/tuần, giữ nguyên Ads và video.</td></tr>
+    <tr><td>Thấp điểm cuối năm</td><td>CVR tháng 12 giảm</td><td>Không tăng bid; dùng thời gian này hoàn thiện video và SEO.</td></tr>
+  </table></div>
+</section>
+
+<section id="vanhanh">
+  <h2><span class="num">13</span>Nhịp vận hành</h2>
+  <div class="grid g3">
+    <div class="card"><b>Hằng ngày</b><ul><li>NS1 kiểm tra chi tiêu, search terms, creative CTR thấp</li></ul></div>
+    <div class="card"><b>Thứ Hai hằng tuần</b><ul><li>Nhập số liệu tab "Báo cáo tuần"</li><li>Họp 30 phút: số liệu, việc trễ, 3 hành động tuần này</li><li>Cập nhật trạng thái Task list</li></ul></div>
+    <div class="card"><b>Cuối mỗi giai đoạn</b><ul><li>Chấm KPI kênh + KPI nhân sự</li><li>Kiểm tra điều kiện chuyển giai đoạn</li><li>Báo cáo sếp, điều chỉnh ngân sách</li></ul></div>
+  </div>
+</section>
+
+<footer>Fotober Media · Kế hoạch Marketing StagedInOne · Cập nhật 07/11/2026: Google Ads launch 08/11</footer>
+</main>
+
+<script>
+const T=[
+["T01","GĐ0","Tracking","GA4 + GTM, event sign_up, upload_photo, start_trial, purchase","4 event bắn đúng","NS1","06/11","07/11","✓ Đã xong"],
+["T02","GĐ0","Tracking","Google Ads conversion + Enhanced Conversions","Conversion ở trạng thái Recording","NS1","06/11","07/11","✓ Đã xong"],
+["T03","GĐ0","Tracking","Meta Pixel + Conversions API","Gom tệp website visitors","NS1","06/11","07/11","✓ Đã xong"],
+["T04","GĐ0","Google Ads","Bộ từ khóa theo nhóm intent + negative list","File keyword","NS1","06/11","07/11","✓ Đã xong"],
+["T05","GĐ0","Google Ads","Dựng 3 campaign Search, RSA, sitelink, callout, image asset (~$50/ngày)","Campaign được duyệt trước 08/11","NS1","06/11","07/11"],
+["T06","GĐ0","Google Ads","QA trước launch: Tag Assistant, UTM, nhắm Mỹ, tắt Search Partners/Display Expansion","Checklist QA 100%","NS1","07/11","07/11"],
+["T07","GĐ1","Chạy Ads","Launch Google Search","Conversion đầu tiên trong 7 ngày","NS1","08/11","08/11","Mốc launch"],
+["T08","GĐ1","Chạy Ads","Theo dõi sát 72 giờ đầu: chi tiêu, search terms, conversion","Báo cáo nhanh 72 giờ","NS1","08/11","11/11"],
+["T09","GĐ1","Chạy Ads","Tối ưu hằng ngày: search terms, negative, bid","Log tối ưu","NS1","08/11","03/01"],
+["T10","GĐ1","Chạy Ads","Báo cáo tuần (dashboard Looker Studio) + review cuối GĐ1","Báo cáo mỗi thứ Hai, chốt ngân sách FB","NS1","08/11","03/01"],
+["T11","GĐ1","Chạy Ads","Chuẩn bị FB Ads: BM, tệp, Lookalike, chọn 4 video test","Sẵn sàng launch 04/01","NS1","21/12","03/01"],
+["T12","GĐ1","Chạy Ads","Nhập số liệu Google Ads hằng ngày vào tab Google Ads, so với mục tiêu","Tab cập nhật mỗi ngày","NS1","08/11","03/01"],
+["T13","GĐ1","Chạy Ads","Chăm signup từ Google: sales liên hệ trong 24 giờ + email 7 ngày đầu","Dùng thử → trả phí ≥ 20%","NS2 + Sales","08/11","03/01"],
+["T14","GĐ1","Tạo video","Brief và kịch bản 4 video ads","4 kịch bản, mỗi video 3 hook","NS2","10/11","16/11"],
+["T15","GĐ1","Tạo video","Video 1: demo sản phẩm 30–60s","9:16 + 1:1 + 16:9","NS3","17/11","30/11"],
+["T16","GĐ1","Tạo video","Video 2–4: before/after 15–20s 9:16","3 video có phụ đề","NS3","24/11","14/12"],
+["T17","GĐ1","Tạo video","Cắt đủ tỉ lệ 9:16/1:1 cho 4 video, mỗi video 3 hook","12 biến thể hook","NS3","15/12","21/12"],
+["T18","GĐ1","Tạo video","Đăng YouTube, nhúng vào website","4 video trên kênh","NS2","15/12","03/01"],
+["T19","GĐ1","SEO","Keyword map 30 bài + technical SEO","Keyword map + checklist","NS2","10/11","23/11"],
+["T20","GĐ1","SEO","Đăng 8 bài blog intent cao","8 bài index","NS2","17/11","03/01"],
+["T21","GĐ1","SEO","3 bài so sánh với đối thủ","3 bài live","NS2","24/11","21/12"],
+["T22","GĐ1","SEO","G2, Capterra, AlternativeTo, Product Hunt + 10 backlink","≥ 4 listing","NS2","01/12","03/01"],
+["T23","GĐ1","Viết content","Chuẩn hóa Fanpage + lịch nội dung","Fanpage hoàn chỉnh","NS2, NS3","10/11","16/11"],
+["T24","GĐ1","Viết content","Fanpage 3 bài/tuần","21 bài","NS2, NS3","17/11","03/01"],
+["T25","GĐ1","Viết content","Group: 2 bài/tuần trong group Fotober + 10 group BĐS Mỹ","16 bài + 40 bình luận","NS2","10/11","03/01"],
+["T26","GĐ2","Facebook Ads","Launch campaign test 3 ad set × 3–4 video","≥ 2 video thắng","NS1","04/01","17/01","Mốc launch FB"],
+["T27","GĐ2","Facebook Ads","Retargeting video viewers, web 30 ngày, signup chưa mua","20–25% ngân sách FB","NS1","11/01","28/02"],
+["T28","GĐ2","Facebook Ads","Scale video thắng, tắt creative yếu","+20%/3 ngày","NS1","18/01","28/02"],
+["T29","GĐ2","Video","Đợt video 2: 4 video từ hook thắng (tổng 8)","4 video","NS3","18/01","14/02"],
+["T30","GĐ2","Google Ads","Duy trì Search, thử Demand Gen $150/tháng","So sánh CPA","NS1","04/01","28/02"],
+["T31","GĐ2","Website","CRO website: rút gọn form, thêm before/after và testimonial lên trang chủ","Tỷ lệ đăng ký +20%","NS1, NS2","11/01","14/02"],
+["T32","GĐ2","Email","Chuỗi 5 email nurture","Open ≥ 35%","NS2","04/01","24/01"],
+["T33","GĐ2","SEO","8 bài blog (gồm bài theo persona)","8 bài index","NS2","04/01","28/02"],
+["T34","GĐ2","Group","Livestream demo + 2 case study","≥ 50 người xem","NS2, NS3","18/01","21/02"],
+["T35","GĐ2","Báo cáo","Review cuối GĐ2, CAC từng kênh","Đề xuất ngân sách GĐ3","NS1","22/02","28/02"],
+["T36","GĐ3","Đa kênh","Phân bổ lại ngân sách theo CAC","Bảng ngân sách mới","NS1","01/03","07/03"],
+["T37","GĐ3","Đa kênh","Spring Listing Season, ưu đãi gói năm","Gói năm ≥ 20% doanh thu T3–T4","NS1, NS2","01/03","04/04"],
+["T38","GĐ3","Facebook Ads","Lookalike từ khách trả phí, Advantage+, offer gói năm","CPA FB ≤ $9","NS1","01/03","09/05"],
+["T39","GĐ3","Google Ads","Long-tail, tối ưu theo purchase","CAC Google ≤ $40","NS1","01/03","09/05"],
+["T40","GĐ3","Referral","Chương trình giới thiệu tặng credit","≥ 10% signup từ referral","NS1, NS2","08/03","04/04"],
+["T41","GĐ3","Video","Làm mới hook cho video thắng (không làm video mới)","2 bản cắt","NS3","01/03","21/03"],
+["T42","GĐ3","SEO","8 bài mới + cập nhật bài cũ","≥ 10 từ khóa top 20","NS2","01/03","09/05"],
+["T43","GĐ3","Group","Thử thách Before/After (UGC)","≥ 20 bài UGC","NS2, NS3","22/03","25/04"],
+["T44","GĐ3","Báo cáo","Tổng kết 6 tháng + kế hoạch tiếp theo","Báo cáo BGĐ","NS1","03/05","09/05"]];
+const cls={"GĐ0":"t0","GĐ1":"t1","GĐ2":"t2","GĐ3":"t3"};
+const tb=document.querySelector("#tasks tbody");
+function render(f){tb.innerHTML=T.filter(r=>f==="all"||r[1]===f||(f.startsWith("NS")&&r[5].includes(f))).map(r=>`<tr><td>${r[0]}</td><td><span class="tag ${cls[r[1]]}">${r[1]}</span></td><td>${r[2]}</td><td>${r[3]}${r[8]?` <span class="small"><b>${r[8]}</b></span>`:""}</td><td>${r[4]}</td><td>${r[5]}</td><td>${r[6]}</td><td>${r[7]}</td></tr>`).join("");}
+const fl=document.getElementById("filters");
+[["all","Tất cả"],["GĐ0","GĐ0"],["GĐ1","GĐ1"],["GĐ2","GĐ2"],["GĐ3","GĐ3"],["NS1","NS1"],["NS2","NS2"],["NS3","NS3"]].forEach(([k,l],i)=>{const b=document.createElement("button");b.textContent=l;if(!i)b.className="on";b.onclick=()=>{fl.querySelectorAll("button").forEach(x=>x.className="");b.className="on";render(k)};fl.appendChild(b)});
+render("all");
+// timeline: 26 tuần tính từ thứ Hai 09/11/2026 (GĐ0 bắt đầu 06/11 vẽ gộp vào tuần đầu)
+const tl=document.getElementById("timeline");
+const months=[["T11",0],["T12",3],["T1",8],["T2",12],["T3",16],["T4",20],["T5",25]];
+let m='<div class="months">';for(let w=0;w<26;w++){const mm=months.find(x=>x[1]===w);m+=`<span>${mm?mm[0]:""}</span>`}m+='</div>';
+const rows=[["GĐ0 Pre-launch",0,0.3,"var(--p0)",""],["GĐ1 Google Ads",0.3,8,"var(--p1)","Launch 08/11 · Google Search (kênh chính)"],["Sản xuất video",1,6,"#5a7fb0","4 video ads"],["GĐ2 Facebook Ads",8,16,"var(--p2)","Launch 04/01 · Test → Retarget → Scale"],["GĐ3 Scale + mùa xuân",16,26,"var(--p3)","Spring Listing · Referral · phân bổ theo CAC"],["Google Ads (duy trì)",8,26,"#7aa7d6","Search + Demand Gen"],["SEO · Group · Fanpage",0.3,26,"#8a94a6","Chạy nền liên tục"]];
+tl.innerHTML=m+rows.map(r=>`<div class="row"><div class="lbl">${r[0]}</div><div class="track"><div class="bar" style="left:${r[1]/26*100}%;width:${(r[2]-r[1])/26*100}%;background:${r[3]}" title="${r[4]}">${r[4]}</div></div></div>`).join("");
+// budget
+const B=[["T11 (08–30/11)",1150,0],["T12/2026",1500,0],["T01/2027",1200,600],["T02/2027",1200,600],["T03/2027",1300,700],["T04/2027",1300,700],["T05 (1–9/5)",350,200]];
+document.getElementById("budget").innerHTML=B.map(b=>{const t=b[1]+b[2];return `<div class="bud"><div>${b[0]}</div><div class="b"><div class="g" style="width:${b[1]/2000*100}%" title="Google $${b[1]}"></div><div class="f" style="width:${b[2]/2000*100}%" title="Facebook $${b[2]}"></div></div><div style="text-align:right">$${t.toLocaleString("en-US")}</div></div>`}).join("");
+</script>
+</body>
+</html>
